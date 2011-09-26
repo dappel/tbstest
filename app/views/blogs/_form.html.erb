@@ -1,0 +1,26 @@
+<%= simple_form_for(@blog) do |f| %>
+    <% if @blog.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+
+          <ul>
+            <% @blog.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <fieldset>
+      <div class="input">
+        <%= f.input :name, :input_html => {:class => 'xlarge'},:label_html => {:class => 'labeldefault'} %>
+      </div>
+      <div class="input">
+        <%= f.input :content %>
+      </div>
+      <div class="actions">
+        <input type="submit" value="Save changes" class="btn primary">&nbsp;
+        <button class="btn" type="reset">Cancel</button>
+      </div>
+    </fieldset>
+
+<% end %>
